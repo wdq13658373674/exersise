@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a标签伪类</title>
+	<style type="text/css">
+		a{color:#000;text-decoration: none;}
+		/* a:link{color:red;}未访问
+		a:visited{color:green;}已经访问 */
+		/**/
+		/* a:hover{color:yellow;}
+		a:active{color:red;} */
+	</style>
+</head>
+<body>
+	<div>
+		<a class="nav" href="#" onclick="setClass(this)">a标签四种效果1</a>
+		<a class="nav" href="#" onclick="setClass(this)">a标签四种效果2</a>
+		<a class="nav" href="#" onclick="setClass(this)">a标签四种效果3</a>
+		<a class="nav" href="js/test.pdf" onclick="setClass(this)">a标签四种效果4</a>
+	</div>
+	<script type="text/javascript">
+		function setClass(obj){
+			clearClass();
+			obj.style.color="red";
+		}
+		function clearClass(){
+			var navList=document.getElementsByClassName("nav");
+			for(var i=0,len=navList.length;i<len;i++){
+				navList[i].removeAttribute("style");
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+@import "mixin";
+
+.main-width{width:1200px;@extend %center;margin-top:10px;}
+%border-gray{
+  border:{
+    width:1px;
+    color:#e5e5e5;
+    style: solid;
+  }
+}
+
+$linkcolor:#666 #FF787B #fff !default;
+
+@mixin bg-color($bg:#FF787B,$padding:10px){
+  background: $bg;
+  padding:$padding;
+}
+
+/*box1*/
+.box1{color:nth($linkcolor,1);@include box-shadow(0 1px 1px #e5e5e5,1px 0 1px nth($linkcolor,2));
+  @extend %border-gray;
+
+  @at-root a{@include bg-color($padding:5px);display:inline-block;
+    &:hover{background:lighten(nth($linkcolor,2),5%);color:nth($linkcolor,3)}
+  }
+}
+
+/*box2*/
+.box2{height:auto; @extend %border-gray;color: #fff;text-align: center;@extend %clearfix;
+  $width:600px;
+  @mixin left($size:25%){width:$width / 2;height:200px;background: mix(nth($linkcolor,1),nth($linkcolor,2),$size)}
+  .left{@include left;}
+  .center{@include left(50%);}
+  .right{background: rgba(nth($linkcolor,2),.5);width:$width;height:200px;}
+}
+
+/*box3*/
+.box3{height:auto; @extend %border-gray;color: #fff;text-align: center;@extend %clearfix;
+  $width:600px;
+  .left{width:$width / 2;height:200px;background:desaturate(nth($linkcolor,2),50%);}
+  .center{width:$width / 2;height:200px;background:nth($linkcolor,2);}
+  .right{width:$width / 2;height:180px;color:#000;text-align: left;padding:10px;@include box-shadow(1px 1px 1px nth($linkcolor,2));
+    .triangleIcon{margin-top:10px;height:30px;line-height:30px;}
+    .icon1{@include triangle(top,8px,nth($linkcolor,2));}
+    .icon2{@include triangle(bottom,8px,nth($linkcolor,2));}
+    .icon3{@include triangle(right,8px,nth($linkcolor,2));}
+    .icon4{@include triangle(left,8px,nth($linkcolor,2));}
+  }
+}
+
+//20160812mine_loading_js页面样式
+#wrap-loading{@include size(100%,100%);position:fixed;top:0px;left:0px;z-index:100;}
+.mask{@include size(100%,100%);position: relative;background: #fff;@include bgcolor-alpha();}
+.loading{@include middle(32px,32px);background: url("../images/loading.gif") center no-repeat;}
+
+//20160812mine_loading_css3页面样式
+#loading{@include size(100%,100%);position: fixed;top:0px;left:0px;z-index:100;
+  #loading-center{@include size(100%,100%);position: relative;@include bgcolor-alpha();}
+  #loading-center-absolute{@include middle(150px,150px);
+    .object{@include size(20px,20px);background: #fff;@include border-radius(50%);float: left;margin-right:20px;margin-top:65px;}
+    //css3动画
+    #object_one {
+      @include prefixer(animation,object_one 1.5s infinite,webkit spec);
+    }
+    #object_two {
+      @include prefixer(animation,object_two 1.5s infinite,webkit spec);
+      @include prefixer(animation-delay,0.25s,webkit spec);
+    }
+    #object_three {
+      @include prefixer(animation,object_three 1.5s infinite,webkit spec);
+      @include prefixer(animation-delay,0.5s,webkit spec);
+    }
+    //keyframes
+    @-webkit-keyframes object_one {
+      75% { -webkit-transform: scale(0); }
+    }
+    @keyframes object_one {
+      75% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+      }
+    }
+
+
+    @-webkit-keyframes object_two {
+      75% { -webkit-transform: scale(0); }
+    }
+    @keyframes object_two {
+      75% {
+        transform: scale(0);
+        -webkit-transform:  scale(0);
+      }
+
+    }
+
+
+    @-webkit-keyframes object_three {
+      75% { -webkit-transform: scale(0); }
+    }
+    @keyframes object_three {
+      75% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+      }
+
+    }
+  }
+}
+
+//文件上传
+.inpload-box{
+  .pre-img{
+    li{@include size(100px,100px);border: 1px solid #e5e5e5;background-size: cover;background-position: center center;overflow: hidden;float:left;margin-right:19px;margin-bottom:19px;}
+  }
+
+  .input-wrap{@include size(100px,100px);overflow: hidden;border: 1px solid #e5e5e5;background: url("../images/upload.jpg") no-repeat;background-position: center;
+    &:active{border-color:#999;}
+    input{@include size(100px,100px);@include opacity(0);cursor:pointer;}
+  }
+}
+

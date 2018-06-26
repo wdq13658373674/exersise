@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@import url("aui-iconfont.css");
+/*ie7*/
+/*nth($gray,1)*/
+/*clear*/
+/*level line*/
+.footer .nav, .wrap .box li {
+  float: left;
+  display: inline; }
+
+/*ellipse(IE all no compatible)*/
+/*has width*/
+/*add to parent center (IE no compatible)适用于移动端*/
+/*width and height (auto)*/
+/*prefix*/
+/*调用prefixer*/
+/*add to self center(IE9+ compatible)*/
+/*triangle(IE All compatible)*/
+/* content*/
+html {
+  background: url("../images/h5/bg2.jpg"); }
+
+.header {
+  width: 100%;
+  height: 2rem;
+  background: indianred;
+  color: #fff;
+  font-size: .8rem;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  line-height: 2rem;
+  overflow: hidden; }
+  .header .hl-icon {
+    padding: 0px 10px;
+    display: inline-block; }
+  .header .hl-title {
+    position: absolute;
+    top: 0px;
+    left: 4rem;
+    right: 4rem;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+
+.footer {
+  width: 100%;
+  height: 2.5rem;
+  background: indianred;
+  color: #fff;
+  font-size: .8rem;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  font-size: .7rem;
+  overflow: hidden; }
+  .footer .nav {
+    width: 5.3rem;
+    height: 2rem;
+    border-right: 1px solid #e5e5e5;
+    text-align: center;
+    margin-top: 0.25rem; }
+    .footer .nav:last-child {
+      border-right: none; }
+
+.wrap {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin: 2rem 0px 2.5rem; }
+  .wrap .box {
+    margin-right: -.6rem;
+    margin-bottom: .5rem; }
+    .wrap .box li {
+      width: 5rem;
+      height: 5rem;
+      margin-right: .5rem;
+      margin-top: .5rem;
+      filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#66FFFFFF', endColorstr='#66FFFFFF');
+      background: -webkit-rgba(255, 255, 255, 0.4);
+      background: -moz-rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.4);
+      overflow: hidden;
+      text-align: center;
+      line-height: 5rem; }
+      .wrap .box li .img {
+        vertical-align: middle; }
+
+/*# sourceMappingURL=rem.css.map */

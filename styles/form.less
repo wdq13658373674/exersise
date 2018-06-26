@@ -1,0 +1,88 @@
+.radius(@size:5px){
+  border-radius:@size;
+  -webkit-radius:@size;
+  -moz-radius:@size;
+  -o-radius:@size;
+}
+@red:#FD5B5F;
+@red-light:#FF787B;
+@red-dark:#DC4144;
+.btn {
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.btn-red{.btn;display:block;border:0;color:#fff;.radius(3px);background: @red;outline: none;font-size:14px;letter-spacing: 2px;
+  &:hover{background: @red-light;}
+  &:active{
+    text-decoration: none;
+    background: @red-dark;
+    box-shadow: 0 1px 3px #5b0505 inset,0 3px 0 #fff;
+    -moz-box-shadow: 0 1px 3px #5b0505 inset,0 3px 0 #fff;
+    -webkit-box-shadow: 0 1px 3px #5b0505 inset,0 3px 0 #fff;
+  }
+}
+
+/*main*/
+.main{@width:460px;width:@width;height:auto;margin:100px auto 0px;background: #fff;padding:60px 70px;.radius;
+  form{
+    .group-box{height:34px;line-height:34px;margin-top:50px;
+      .label{height:34px;line-height:34px;width:100px;text-align: right;display:inline-block;margin-right:27px;
+        i{margin-right:10px;}
+      }
+      .input{padding:10px;height:12px;line-height:12px;overflow: hidden;outline: none;border:1px solid #e4e4e4;.radius(2px);width:175px;}
+      .Validform_wrong{height:32px;display:inline-block;margin-left:10px;}
+    }
+
+    /*
+    方式一：radio(兼容ie9+)
+    */
+    //hover的动画效果
+    /*@keyframes hover-color {
+      from{border-color:#ddd;}
+      to{border-color:@red;}
+    }
+
+    .radio-box{
+      .radio{display:none;}
+
+      .radio-txt{height:20px;line-height:20px;position:relative;padding-left:30px;display:inline-block;margin-right:20px;
+        &::before{width:16px;height:16px;position:absolute;left:0px;top:0px;display:inline-block;content: '';border-radius:50%;border:2px solid #ddd;}
+        &:hover::before{animation: hover-color .5s both;}/!*hover效果*!/
+      }
+
+      .radio:checked {
+        & + .radio-txt::before {border-color: @red;}
+        & + .radio-txt::after {width: 8px;height: 8px;top:6px;left: 6px;display:inline-block;position: absolute;border-radius:50%;content: '';background: @red;}
+        & + .radio-txt:hover::before{animation-name:none;}
+      }
+    }*/
+
+    /*
+     方式二：radio(兼容ie9+)
+    */
+    .radio-box{height:34px;line-height:34px;
+      .radio-txt{width:22px;height:22px;display:inline-block;background: url("../images/radio2.png") top left no-repeat;vertical-align: middle;margin-right:5px;cursor: pointer;
+        &.check{background: url("../images/radio.png") top left no-repeat;}
+      }
+      .radio{display:none;
+        &:checked + .radio-txt{border:0px;background: url("../images/radio.png") top left no-repeat;}
+      }
+
+    }
+  }
+}

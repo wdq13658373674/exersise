@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>触发大事件trigger和triggerHandler的区别</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+<button id="old">.trigger("focus")</button>
+<button id="new">.triggerHandler("focus")</button><br><br>
+<input type="text" value="To Be Focused">
+
+<script>
+    $(function(){
+        $("#old").click(function(){
+            $("input").trigger("focus");//绑定默认事件
+        });
+        $("#new").click(function(){
+            $("input").triggerHandler("focus");//不绑定默认事件
+        });
+        $("input").focus(function(){
+            $("<span>Focused!</span>").appendTo("body").fadeOut(1000);
+        });
+    });
+</script>
+</body>
+</html>

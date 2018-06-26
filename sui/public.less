@@ -1,0 +1,26 @@
+@import "function";
+
+/*orange-bar*/
+.orange-bar{background: @orange;
+  *{color:#fff;}
+}
+
+/*white-bar*/
+.white-bar{
+  *{color:@coffe;}
+}
+
+/*footer-bar*/
+.footer-bar{
+  .tab-item.active,.tab-item:active {
+    color:@orange;
+  }
+}
+
+/**/
+.main-bar{.orange-bar;
+  .searchbar{background: none;width:50%;}
+  .icon{font-size:.6rem;}
+  .icon-search{color:@orange;}
+  .search-input input{border-radius:1.25rem;}
+}

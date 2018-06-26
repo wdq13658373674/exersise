@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js对象</title>
+</head>
+<body onload="checkCookie()">
+<!--<button id="btn" onclick="javascript:window.history.back()">点击</button>-->
+
+<div id="dom"></div>
+<script>
+    "use strict"
+    var doc=document;
+//    <!--对象-->
+   /* var person={
+        name:"tom",
+        age:18,
+        sex:"女"
+    };
+    document.getElementsByClassName("content")[0].innerHTML=person.name;*/
+
+    /*字符串*/
+    /*var charstr="It\'s a dog";
+    alert(charstr[2]);*/
+
+    /*闭包*/
+    /*var add=(function(){
+        var count=0;
+        return function(){return count+=1;}
+    })();
+
+    function count(){
+        document.getElementById("count").innerHTML=add();
+    }*/
+
+    /*正则表达式*/
+    /*var reg=/(?!^\d+$)(?!^[a-zA-Z]+$)[0-9a-zA-Z]{6,}/gi;*//*输入字母和数字组合的6位数以上的密码正则验证规则（不区分大小写全匹配）*//*
+    var reg=/.{2}/;
+    var results="w1234565";
+   alert(reg.test(results));*//*返回为true或者false*//*
+    document.write(results.match(reg));*/
+
+    /*js运算符以及for循环*/
+    /*var text1="what a very";
+    var text2="nice day";
+
+    var text = new Array();
+     text[1]=text1+" "+text2;
+     text[0]="hello" + 5;
+
+    for(var i=0;i<2;i++){
+        doc.write(text[i] + "<br/>");
+    }*/
+
+    /*js比较*/
+   /* var age=20;
+    var des=(age > 22 ) ? "年龄太大" : "年龄太小";
+    doc.write(des);*/
+
+    /*swich 语句*/
+    /*var day=new Date().getDay();
+    switch(day){
+        case 1:x="今天星期一";
+            break;
+        case 2:x="今天星期二";
+            break;
+        case 3:x="今天星期三";
+            break;
+        case 0:x="今天星期日";
+            break;
+        default :break;
+    }
+    doc.write(x);*/
+
+    /*fon/in循环遍历对象*/
+    /*var person={firstName:"john",lastName:"Doe",age:18}
+    for(x in person){
+        doc.write( person[x] + "<br/>");
+    }*/
+
+    /*while 循环*/
+   /* var i=0;
+    while(i<5){
+        doc.write(i + "<br/>");
+        i++;
+    }
+    doc.write("<hr/>");
+    do{
+        doc.write(i + "<br/>");
+        i++;
+    }while(i<5);*/
+
+    /*break 和 continue*/
+    //break
+   /* for(var i=0;i<10;i++)
+    {
+        if(i == 3) break;
+        doc.write("this number is" + i + "<br/>");
+    }
+    doc.write("<hr/>");
+    //continue
+    for(var i=0;i<10;i++)
+    {
+        if(i == 3) continue;
+        doc.write("this number is" + i + "<br/>");
+    }*/
+
+    /*json 转换为js对象*/
+    /*var text = '{ "employees" : [' +
+            '{ "firstName":"John" , "lastName":"Doe" },' +
+            '{ "firstName":"Anna" , "lastName":"Smith" },' +
+            '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+
+    var obj = JSON.parse(text);
+    var msg=obj.employees[1].firstName;
+    doc.write(msg);*/
+
+    /*构造函数*/
+   /* var myFun=new Function("a","b","return a * b");
+    var sum = myFun(3,5);
+    doc.write(sum);*/
+
+    /*查找最大数 arguments 对象*/
+   /* var num=findmax(1,2,6,3,8,100,110,34);
+    doc.write(num);
+
+    function findmax(){
+        var i= 0,max=0;
+
+        for(;i< arguments.length;i++){
+            if(arguments[i] > max){
+                var max = arguments[i];
+            }
+        }
+
+        return max;
+    }*/
+
+    /*将函数定义为对象的方法*/
+   /* var Person={
+        name:"小王",
+        age:18,
+        desc: function(){
+            return this.name + "今年"  + this.age + "岁了";
+        }
+    }
+    doc.write(Person.desc());
+    */
+
+    /*使用构造函数调用函数*/
+   /* function myFun(arg1,arg2){
+        this.fname=arg1;
+        this.lname=arg2;
+    }
+    *//*调用*//*
+    var x=new myFun("john","tom");
+    doc.write(x.fname + " " + x.lname);*/
+
+    /*作为函数方法调用函数call() ， apply()预定义方法*/
+    /*function myFun(a,b){
+        return a * b;
+    }
+    doc.write(myFun.call(this,10,2));
+
+    doc.write("<hr/>");
+    var ar=[2,9];
+    doc.write(myFun.apply(this,ar));*/
+
+//    ---------------------------------------------------js html dom------------------------------------------------------------------
+    /*js操作dom，css，dom属性*/
+    //操作dom对象
+    /*document.getElementById("");
+    document.getElementsByTagName("");
+    document.getElementsByClassName("");
+
+    //操作dom属性
+    document.getElementById("").href="";
+    //操作css
+    document.getElementById("").style.display="block";*/
+
+    /*addEventListener()*/
+    /*doc.getElementById("btn").addEventListener("click",function(){
+        doc.getElementById("dom1").innerHTML="绑定事件成功";
+    });*/
+
+    /*创建dom新节点*/
+   /* var pare=doc.createElement("p");
+    var node=doc.createTextNode("创建的新元素");
+    pare.appendChild(node);
+    document.getElementById("dom").appendChild(pare);*/
+
+//    pare.parentNode.removeChild(pare);
+
+    /*创建对象*/
+    /*var person=new Object();
+    person.name="jon";
+    person.age=19;
+    person.sex="女";*/
+    /*var person={name:"tom",age:18};*/
+
+    /*对象构造器*/
+   /* function person(name,age){
+        this.name=name;
+        this.age=age;
+
+        this.change=change;*//*important*//*
+        function change(changeName){
+            this.name=changeName;
+        }
+    }
+
+    var peo=new person("john",18);
+    peo.change("joe");
+    doc.write(peo.name + "今年" + peo.age + "岁了");*/
+
+    /*for..in循环遍历对象*/
+   /* var x;
+    var person={name:"tom",age:18};
+    for(x in person){
+        doc.write(person[x] + "<br/>");
+    }*/
+
+    /*字符串String()对象*/
+    /*var str="forever let you go";
+    doc.write(str.indexOf("ever") + "<br/>");*//*indexOf()定位字符串首尾出现的位置，未找到则返回-1*//*
+    //匹配字符串
+    doc.write(str.match("let") + "<br/>");*//*未找到则返回null*//*
+    //替换字符
+    doc.write(str.replace("let you go","i miss you") + "<br/>");
+    //字符串转换数组
+    str.split(",");
+    doc.write(str[0]);*/
+
+    /*时间对象Date()*/
+    /*var day=new Date();
+    doc.write("时间戳" + day.getTime() + "<br/>");//返回时间戳
+    doc.write("今天是星期" + day.getDay() + "<br/>");
+    doc.write("今天是"+day.getDate()  + "号");*/
+    //显示时钟
+    /*function startTime(){
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        m=checkTime(m);
+        s=checkTime(s);
+        doc.getElementById("dom").innerHTML=h + ":" + m + ":" + s;
+
+        setTimeout(function(){
+            startTime();
+        },1000);
+    }
+
+    function checkTime(i){
+        if(i < 10){
+            i="0" + i;
+        }
+        return i;
+    }*/
+
+   /* function myTimer(){
+        var day = new Date();
+        var t=day.toLocaleTimeString();
+        doc.getElementById("dom").innerHTML=t;
+    }
+
+    setInterval(function(){
+        myTimer();
+    },1000);*/
+
+    /*数组对象array()*/
+//    var sttr=[];
+    /*var sttr=new Array();
+    sttr[0]="skd";
+    sttr[1]="skd";
+    sttr[2]="skd";
+    for(var i=0;i<3;i++){
+        doc.write(sttr[i]);
+    }*/
+
+    /*RegExp正则表达式对象*/
+//    var parrt=new RegExp("e");
+   /* var parrt=/for/;
+    doc.write(parrt.test("forever") + "<br/>");
+    doc.write(parrt.exec("forever"));//返回为true*/
+
+    /*弹窗*/
+/*    alert("您好");
+    confirm("您好");
+    prompt("请输入您的名字");*/
+
+    /*Cookie*/
+    //设置cookie值
+    function setCookie(cname,cvalue,exdays){
+        var d = new Date();
+        d.setTime(d.getTime()+(exdays*24*60*60*1000));
+        var expires = "expires="+d.toGMTString();
+        document.cookie = cname+"="+cvalue+"; "+expires;
+    }
+    //获取cookie值
+    function getCookie(cname){
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+        }
+        return ""; }
+    //检测cookie值
+    function checkCookie(){
+        var user=getCookie("username");
+        if (user!=""){
+            alert("Welcome again " + user);
+        }
+        else {
+            user = prompt("Please enter your name:","");
+            if (user!="" && user!=null){
+                setCookie("username",user,30);
+            }
+        }
+    }
+</script>
+</body>
+</html>

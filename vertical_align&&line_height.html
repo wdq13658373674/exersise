@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vertical-align 和 line-height常见问题</title>
+</head>
+<body>
+<!--解决图片和div之间的间隙-->
+<style>
+    .img-box{
+        border: 1px solid #e5e5e5;
+    }
+    .img-box>img{vertical-align: middle;}
+</style>
+<!--（一）-->
+<h3>（一）图片与div的间隙问题</h3>
+<div class="img-box">
+    <img src="images/test0.png" alt=""/>
+</div>
+
+<!--（二）-->
+<h3>（二）图片垂直居中问题(兼容IE7)</h3>
+<style>
+    .img-box2{
+        border: 1px solid #e5e5e5;
+        line-height: 300px;
+        font-size:0px;
+    }
+    .img-box2>img{vertical-align: middle;}
+</style>
+<div class="img-box2">
+    <img src="images/test0.png" alt=""/>
+</div>
+
+<!--(三)-->
+<style>
+    .box{width:1200px; padding:20px; margin:20px auto; background-color:#f0f3f9; text-align:justify;}
+    .list{width:200px; display:inline-block; padding-bottom:20px; text-align:center; vertical-align:top;}
+    .justify_fix{display:inline-block; width:100%; height:0; overflow:hidden;}
+    .left_fix{height:0; padding:0; overflow:hidden;}
+</style>
+<h3>（三）vertical-align:justify和display:inline-block实现两端对齐</h3>
+<div class="box">
+    <span class="list">
+        <img src="images/test0.png" />
+        <br/>
+        haha
+    </span>
+    <span class="list">
+        <img src="images/test0.png" />
+        <br/>
+        haha
+    </span>
+    <span class="list">
+        <img src="images/test0.png" />
+        <br/>
+        haha
+    </span>
+    <span class="list">
+        <img src="images/test0.png" />
+        <br/>
+        haha
+    </span>
+     <span class="list">
+        <img src="images/test0.png" />
+         <br/>
+        haha
+    </span>
+    <span class="list">
+        <img src="images/test0.png" />
+        <br/>
+        haha
+    </span>
+    <span class="list">
+        <img src="images/test0.png" />
+        <br/>
+        haha
+    </span>
+    <span class="list">
+        <img src="images/test0.png" />
+        <br/>
+        haha
+    </span>
+    <span class="list left_fix">&nbsp;</span>
+    <span class="list left_fix">&nbsp;</span>
+    <span class="justify_fix"></span>
+</div>
+
+<!--非行内元素不兼容IE7-->
+<ul class="box" style="">
+    <li class="list">
+        <img src="images/test0.png" />
+    </li>
+    <li class="list">
+        <img src="images/test0.png" />
+    </li>
+    <li class="list">
+        <img src="images/test0.png" />
+    </li>
+    <li class="list">
+        <img src="images/test0.png" />
+    </li>
+    <li class="list">
+        <img src="images/test0.png" />
+    </li>
+    <li class="list">
+        <img src="images/test0.png" />
+    </li>
+    <li class="list">
+        <img src="images/test0.png" />
+    </li>
+    <li class="list">
+        <img src="images/test0.png" />
+    </li>
+    <li class="list">
+        <img src="images/test0.png" />
+    </li>
+  <li class="list left_fix">&nbsp;</li>
+      <!--<li class="list left_fix">&nbsp;1</li>
+    <li class="list left_fix">&nbsp;1</li>-->
+    <li class="justify_fix"></li>
+</ul>
+
+<!-（四）-->
+<style>
+    .content{height:240px; position:relative;border:1px solid #e5e5e5;display:table-cell;vertical-align: middle;width:500px;font-size:0px;}
+</style>
+<h3>(四)垂直居中(display:table-cell),ie6不支持，单行文本可以采取height加line-height设置其垂直居中</h3>
+<div class="content">
+    <div style="width:100px;height:100px;background:#000;border:1px solid #e5e5e5;margin:auto;"></div>
+</div>
+
+<style>
+    .wrap{height:240px;width:600px;border: 1px solid #e5e5e5;margin-top:20px;}
+    #floater{float:left; height:50%; margin-bottom:-50px;}
+    .content-box{clear:both;width:100px; height:100px; position:relative;border: 1px solid #e5e5e5;}
+</style>
+<div class="wrap">
+    <div id="floater"></div>
+    <div class="content-box">content</div>
+</div>
+
+<!--（五）图标+文字垂直居中问题-->
+<style>
+    .icon{width:32px;height:36px;display:block;float:left;}
+</style>
+<h3>（五）图标+文字垂直居中问题</h3>
+<div class="text-box">
+    <img src="images/news_weidu.png" alt=""/>
+    <span>文字居中</span>
+</div>
+
+<div class="text-box2">
+    <a class="icon" href="#" style="background: url('images/arrow.png') no-repeat;"></a>
+    <span style="float:left;">文字居中</span>
+</div>
+</body>
+</html>

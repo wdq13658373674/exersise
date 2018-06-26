@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3实现loading动画效果</title>
+    <link rel="stylesheet" href="styles/sass.css"/>
+</head>
+<body>
+<div>
+    <h1>加载完成</h1>
+</div>
+
+<script>
+    var loadingHtml=
+            '<div id="loading">' +
+             ' <div id="loading-center">' +
+                '<div id="loading-center-absolute">' +
+                    '<div class="object" id="object_one"></div>' +
+                    '<div class="object" id="object_two"></div>' +
+                    '<div class="object" id="object_three"></div>' +
+                '</div>' +
+            '</div>' +
+            '</div>';
+    document.write(loadingHtml);//添加loading html结构
+
+    //加载状态为complete时移除loading
+    document.onreadystatechange=function compele(){
+        if(document.readyState == 'complete'){
+            var loading=document.getElementById('loading');
+            var center=document.getElementById('loading-center');
+            loading.removeChild(center);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalabel=no" />
+    <title>表单</title>
+    <link rel="stylesheet" href="styles/base.css"/>
+
+    <link rel="stylesheet" href="styles/form.css"/>
+    <link rel="stylesheet" href="styles/validform.css"/>
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="js/Validform_v5.3.2_min.js"></script>
+    <script type="text/javascript" src="js/jq_placeholder.js"></script>
+
+    <style type="text/css">
+
+        .demo{width:360px;margin:50px auto 10px auto;padding:10px;}
+        .demo img{width:90%}
+        .demo h3{font-size:1.5em;line-height:1.9em}
+
+        .col{margin-top:20px}
+        .col h4{height:40px;line-height:40px}
+        .opt{height:30px;line-height:24px}
+    </style>
+</head>
+<body style="background: #e5e5e5;">
+    <div class="main">
+        <form action="" method="" id="regform">
+            <div class="group-box">
+                <label for="name" class="fl label"><i class="red">*</i>姓名：</label>
+                <input class="input" class="fl" type="text" id="name" value="" nullmsg="姓名不能为空" placeholder="姓名"/>
+            </div>
+            <div class="group-box">
+                <label for="name2" class="fl label"><i class="red">*</i>姓名：</label>
+                <input class="input" class="fl" type="text" id="name2" value="" placeholder="姓名"/>
+            </div>
+            <div class="group-box">
+                <label for="psw0" class="fl label"><i class="red">*</i>密码：</label>
+                <input class="input" class="fl"  type="password" id="psw0"  value="" placeholder="密码"/>
+            </div>
+            <div class="group-box">
+                <label for="psw1" class="fl label"><i class="red">*</i>密码确认：</label>
+                <input class="input" class="fl"  type="password" id="psw1"  value="" placeholder="密码确认"/>
+            </div>
+            <!--
+            方式一：radio改变默认样式
+            -->
+            <!--<div class="group-box">
+                <label class="fl label"><i class="red">*</i>性别：</label>
+                <div class="fl radio-box">
+                    <input class="radio" type="radio" name="radio" id="woman" checked/>
+                    <label for="woman" class="radio-txt">女</label>
+                </div>
+                <div class="fl radio-box">
+                    <input class="radio" type="radio" name="radio" id="men"/>
+                    <label for="men" class="radio-txt">男</label>
+                </div>
+            </div>-->
+            <!--
+            方式二：radio改变默认样式
+            -->
+            <div class="group-box">
+                <label class="fl label"><i class="red">*</i>性别：</label>
+                <div class="fl radio-box">
+                    <input class="radio" type="radio" name="radio" id="woman" checked/>
+                    <label for="woman" class="radio-txt"></label>
+                </div>
+                <div class="fl mr10">女</div>
+                <div class="fl radio-box">
+                    <input class="radio" type="radio" name="radio" id="man"/>
+                    <label for="man" class="radio-txt"></label>
+                </div>
+                <div class="fl mr10">男</div>
+            </div>
+            <div class="group-box">
+                <label class="fl label"></label>
+                <button type="submit" id="submit" class="fl btn-red">立即注册</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    $(function(){
+        $("#regform").Validform({
+            tiptype:3
+        });
+    });
+</script>
+</html>

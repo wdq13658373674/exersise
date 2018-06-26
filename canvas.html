@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+    <h3>1、矩形的绘制(rect)加渐变色（gradient）</h3>
+    <canvas id="box1"></canvas>
+
+    <h3>2、圆形的绘制(arc)</h3>
+    <canvas id="box2"></canvas>
+
+    <h3>3、文本的绘制(fillText)</h3>
+    <canvas id="box3"></canvas>
+
+    <h3>4、绘制图像(drawImage)</h3>
+    <!--<img src="images/test0.png" alt="" id="img"/>-->
+    <canvas id="box4" width="300px" height="200px"></canvas>
+
+    <script>
+            $(function(){
+               rect();
+            });
+
+            function rect(){
+                var cv1 = document.getElementById("box1");
+                var cv2 = document.getElementById("box2");
+                var cv3 = document.getElementById("box3");
+                var cv4 = document.getElementById("box4");
+
+                if(cv1 == null && cv2 == null && cv3 == null && cv4 == null)
+                    return false;
+
+                var context1 = cv1.getContext("2d");
+                var context2 = cv2.getContext("2d");
+                var context3 = cv3.getContext("2d");
+                var context4 = cv4.getContext("2d");
+
+                /*给方形添加渐变*/
+                var grid=context1.createLinearGradient(0,0,100,100);
+                grid.addColorStop(0,"rgba(255,0,0,0.5)");
+                grid.addColorStop(1,"white");
+
+                /*画方形*/
+//                context1.fillStyle = "#FF787B";/*设置纯色*/
+                context1.shadowBlur=5;
+                context1.shadowOffsetX=10;
+                context1.shadowOffsetY=10;
+                context1.shadowColor="rgba(100,100,100,0.5)";/*阴影*/
+
+//                context1.fillStyle=grid;/*使用渐变色*/
+                context1.fillStyle="rgba(255,0,0,0.5)";
+                context1.fillRect(0,0,100,100);/*实心圆*/
+//                context1.strokeRect(0,0,100,100);
+//                context1.clearRect(50,50,50,50);/*清除*/
+
+                /*画圆*/
+                context2.beginPath();
+                context2.arc(150, 70, 70, 0, Math.PI * 2, true);
+                context2.closePath();
+                context2.fillStyle="#000";
+//                context2.fill();
+                context2.stroke();
+
+                /*文本*/
+                context3.fillStyle=grid;
+                context3.font="30px 微软雅黑"
+                context3.fillText("hello word",10,30);
+//                context3.strokeText("hello word",10 ,30);/*边框圆*/
+
+                /*绘制图像*/
+                /*获取图片*/
+//                var img=document.getElementById("img");
+                var img=new Image();
+                img.src="images/3.jpg";
+
+                context4.drawImage(img,0,0,1000,1000,10,10,300,200);/*图片对象，*/
+            }
+    </script>
+</body>
+</html>

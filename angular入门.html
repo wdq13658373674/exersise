@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>angular 入门</title>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div>
+        <lable for="name">姓名：</lable>
+        <input type="text" id="name" value="" placeholder="姓名" ng-model="name"/>
+    </div>
+    <div>
+        <lable>性别：</lable>
+        <input type="radio" value="女" ng-model="sex"/>女
+        <input type="radio" value="男" ng-model="sex"/>男
+    </div>
+    <div>
+        <lable>兴趣</lable>
+        <input type="checkbox" ng-model="intre1" ng-true-value=" '篮球'"/>篮球
+        <input type="checkbox" ng-model="intre2" ng-true-value=" '羽毛球'"/>羽毛球
+        <input type="checkbox" ng-model="intre3" ng-true-value=" '乒乓球'"/>乒乓球
+    </div>
+
+    <h4>1、用户信息显示</h4>
+    <div>姓名：{{name}}</div>
+    <div>性别：{{sex}}</div>
+    <div>兴趣爱好：{{intre1}} {{intre2}} {{intre3}}</div>
+
+    <!--ng-model 创建变量绑定-->
+    <h4>2、变量绑定</h4>
+    <div ng-controller="myCtrl">
+        姓名：{{name | uppercase}}<!--格式化字符串位大写-->
+    </div>
+
+    <!--scope 作用范围-->
+    <h4>3、scope 作用范围</h4>
+    <ul ng-controller="myCtrl">
+        <li ng-repeat="x in names">{{x}} {{descri}}</li>
+    </ul>
+
+    <!--$interval 的使用-->
+    <h4>4、interval 的使用</h4>
+    <div ng-controller="myCtrl">当前时间为：{{theTime}}</div>
+
+    <!--ng-option创建选择框-->
+    <h4>5、ng-option 创建选择框</h4>
+    <div ng-controller="myCtrl">
+        <select name="" id="" ng-model="selectedName" ng-options="x for x in options"></select>
+    </div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller("myCtrl", function ($scope,$rootScope,$interval) {
+        $scope.name="tom";
+        $scope.names=["小明","小红","小花"];
+        $rootScope.descri="美";
+
+        $scope.theTime=new Date().toLocaleTimeString();
+        $interval(function(){
+            $scope.theTime=new Date().toLocaleTimeString();
+        },1000);
+
+        $scope.options=["taobao","google","tianmao","baidu"];
+    });
+</script>
+</body>
+</html>

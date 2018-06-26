@@ -1,0 +1,299 @@
+@charset "utf-8";
+//变量
+/*ie7*/
+$lte7:true !default;
+$filter:true !default;
+/*nth($gray,1)*/
+$gray:#F0F0F0 #B1B1B1 #858585 #6D6D6D!default;
+$red1:#D60A61 !default;
+$blue1:#2E3A48 !default;
+$yellow1:#D8CCB6 !default;
+
+ //----------------------------------------------%
+/*clear*/
+%clearfix{
+  @if $lte7{*zoom:1;}
+
+  &:before,
+  &:after{
+    content:"";
+    width:0px;
+    height:0px;
+    display: block;
+    visibility: hidden;
+    font:0 / 0 a;
+  }
+
+  &:after{clear:both;}
+}
+
+/*level line*/
+%line-x {
+  width: 100%;
+  position: relative;
+  height: 1px;
+  &:after{
+    border-bottom: 1px solid #c8c7cc;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(1);
+    pointer-events: none;
+  }
+}
+
+//--------------------------------------% && @mixin
+@mixin center{
+  margin-left:auto;
+  margin-right:auto;
+}
+%center{
+  @include center;
+}
+
+@mixin float($float:left){
+  float: $float;
+  @if $lte7{
+    display: inline;
+  }
+}
+%fl{
+  @include float;
+}
+%fr{
+  @include float(right);
+}
+
+// opacity
+@mixin opacity($opacity:50) {
+  opacity: $opacity / 100;
+  @if $filter{
+    filter: alpha(opacity=$opacity);
+  }
+}
+%opacity{
+  @include opacity;
+}
+//背景色半透明
+@mixin bgcolor-alpha($bgcolor: rgba(#000,.5)){
+  @if $filter{
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#{ie-hex-str($bgcolor)}', endColorstr='#{ie-hex-str($bgcolor)}');
+  }@else{
+    background-color: #333;
+  }
+  background:-webkit-#{$bgcolor};
+  background:-moz-#{$bgcolor};
+  background:#{$bgcolor};
+}
+%bgcolor-alpha{
+  @include bgcolor-alpha;
+}
+
+// inline-block
+// ie6-7 *display: inline;*zoom:1;
+@mixin inline-block ($extend:true) {
+  @if $extend {
+    @extend %inline-block;
+  } @else {
+    display: inline-block;
+    @if $lte7 {
+      *display: inline;
+      *zoom:1;
+    }
+  }
+}
+%inline-block{
+  @include inline-block(false);
+}
+
+/*ellipse(IE all no compatible)*/
+%ellipse{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/*has width*/
+@mixin ellipsis($width:100%) {
+  @extend %ellipse;
+  width:$width;
+}
+@mixin ellipse($num:2) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+/*add to parent center (IE no compatible)适用于移动端*/
+@mixin center-children {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%center-children {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//----------------------------------------------------------@mixin
+@mixin border-radius($radius:5px){
+  -webkit-border-radius:$radius;
+  -moz-border-radius:$radius;
+  border-radius: $radius;
+}
+
+/*width and height (auto)*/
+@mixin size($size...){
+  $size: if(length($size) > 0 , $size , auto);
+  $width: nth($size, 1);
+  $height: nth($size, length($size));
+
+  @if $width != auto {
+    $width:if(unitless($width), $width + px, $width);
+  }
+  @if $height != auto{
+    $height:if(unitless($height), $height + px, $height);
+  }
+
+  width: $width;
+  height: $height;
+}
+
+@mixin m-fadeOut($fade...) {
+  visibility: hidden;
+  opacity: 0;
+  transition: $fade;//visibility 0s linear 300ms, opacity 300ms;
+}
+@mixin m-fadeIn($fade...) {
+  visibility: visible;
+  opacity: 1;
+  transition: $fade;
+}
+
+/*prefix*/
+$prefix-for-webkit:true !default;
+$prefix-for-mozilla:true !default;
+$prefix-for-microsoft:true !default;
+$prefix-for-opera:true !default;
+$prefix-for-spec:true !default;
+
+@mixin prefixer($prototype,$value,$prefixes : o webkit){
+  @each $prefix in $prefixes{
+    @if $prefix == webkit and $prefix-for-webkit == true{
+      -webkit-#{$prototype}:$value;
+    }
+    @else if $prefix == moz and $prefix-for-mozilla == true{
+      -moz-#{$prototype}:$value;
+    }
+    @else if $prefix == o and $prefix-for-opera == true{
+      -o-#{$prototype}:$value;
+    }
+    @else if $prefix == ms and $prefix-for-microsoft == true{
+      -ms-#{$prototype}:$value;
+    }
+    @else if $prefix == spec and $prefix-for-spec ==true{
+      #{$prototype}:$value;
+    }
+    @else {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+/*调用prefixer*/
+@mixin box-shadow($shadow...){
+  @include prefixer(box-shadow, $shadow, webkit moz spec);
+}
+
+@mixin trans-hover($trans...){
+  text-decoration:none;
+  @include prefixer(transition,$trans,webkit moz spec);
+}
+
+/*add to self center(IE9+ compatible)*/
+@mixin middle($width: null, $height: null) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  @if not $width and not $height {
+    @include prefixer(transform,translate(-50%, -50%),webkit moz o ms spec)
+  } @else if $width and $height {
+    width: $width;
+    height: $height;
+    margin: -($width / 2) #{0 0} -($height / 2);
+  } @else if not $height {
+    width: $width;
+    margin-left: -($width / 2);
+    @include prefixer(transform,translateY(-50%),webkit moz o ms spec)
+  } @else {
+    height: $height;
+    margin-top: -($height / 2);
+    transform: translateX(-50%);
+  }
+}
+
+/*triangle(IE All compatible)*/
+%triangle-basic{
+  content:"";
+  width:0px;
+  height:0px;
+  display: inline-block;
+  overflow:hidden;
+}
+@mixin triangle($direction:top,$size:8px,$color:#e5e5e5){
+  @extend %triangle-basic;
+  @if $direction==top{
+    border-bottom: $size solid $color;
+    border-right:$size dashed transparent;
+    border-left:$size dashed transparent;
+  }
+  @else if $direction==bottom{
+    border-top: $size solid $color;
+    border-right: $size dashed transparent;
+    border-left: $size dashed transparent;
+  }
+  @else if $direction==right{
+    border-left:$size solid $color;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+  }
+  @else if $direction==left{
+    border-right:$size solid $color;
+    border-top: $size dashed transparent;
+    border-bottom: $size dashed transparent;
+  }
+}
+
+//--------------------------------------------------@function
+/* content*/
+@mixin screen($res-min,$res-max){
+  @media screen and (min-width:$res-min) and (max-width: $res-max){
+    @content;
+  }
+}
+
+@mixin keyframes($name){
+  @keyframes #{$name}{
+    @content;
+  }
+}
+
+@mixin no-border-radius{
+  .no-border-radius{
+    @content;
+  }
+}
+
+
+
+
+
+

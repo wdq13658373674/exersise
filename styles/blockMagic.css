@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/*ie7*/
+/*nth($gray,1)*/
+/*clear*/
+/*level line*/
+.wrap { margin-left: auto; margin-right: auto; }
+
+/*ellipse(IE all no compatible)*/
+/*has width*/
+/*add to parent center (IE no compatible)适用于移动端*/
+/*width and height (auto)*/
+/*prefix*/
+/*调用prefixer*/
+/*add to self center(IE9+ compatible)*/
+/*triangle(IE All compatible)*/
+/* content*/
+.wrap { width: 1200px; height: auto; border: 1px solid #e5e5e5; padding: 10px; }
+.wrap .box1 { line-height: 50px; height: 50px; }
+.wrap .box1 .red-ft { color: #FD5F63; }
+.wrap .box2 { width: 1200px; height: 300px; border: 1px solid #e5e5e5; position: relative; /*@include center-children;*/ }
+.wrap .box2 .inset { border: 1px solid #FD5F63; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); font-size: 0px; }
+.wrap .box3 { width: 1200px; height: 300px; border: 1px solid #e5e5e5; position: relative; background: #000; }
+.wrap .box3 .clip { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); background-image: -webkit-linear-gradient(crimson 50%, white 50%); background-repeat: repeat; background-position: 0 0; background-size: 100% 50px; -webkit-text-fill-color: transparent; -webkit-background-clip: text; animation: stripes 2s linear infinite; }
+@keyframes stripes { 100% { background-position: 0 -50px; } }
+.wrap .box3 .clip { position: absolute; top: 50%; left: 50%; white-space: nowrap; text-align: center; text-transform: uppercase; transform: translateX(-50%) translateY(-50%); font: italic  bold 100px /.8  "微软雅黑"; }
+.wrap .sidebar-toggle { width: 15px; height: 15px; padding: 5px; background: #222; line-height: 0; z-index: 1050; cursor: pointer; }
+.wrap .sidebar-toggle .sidebar-toggle-line { position: relative; display: inline-block; vertical-align: top; height: 2px; width: 100%; background: #fff; margin-top: 3px; width: 100%; left: 0px; top: 0px; opacity: 1; transform: rotate(0deg); transition: All .3s linear; }
+.wrap .sidebar-toggle:hover .sidebar-toggle-line { transition: All .3s linear; }
+.wrap .sidebar-toggle:hover .sidebar-toggle-line-first { width: 50%; transform: rotate(-45deg); top: 1px; }
+.wrap .sidebar-toggle:hover .sidebar-toggle-line-middle { width: 90%; opacity: 1; }
+.wrap .sidebar-toggle:hover .sidebar-toggle-line-last { width: 50%; top: -1px; transform: rotate(45deg); }
+
+/*# sourceMappingURL=blockMagic.css.map */

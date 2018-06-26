@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>复选框全选实例</title>
+</head>
+<body>
+<input type="button" value="全选" />
+<input type="button" value="反选" />
+<input type="button" value="不选" />
+<br />
+<input type="checkbox"/>
+<br />
+<input type="checkbox" />
+<br />
+<input type="checkbox" />
+<br />
+<input type="checkbox" />
+<br />
+<input type="checkbox" />
+<br />
+<input type="checkbox" />
+<br />
+<input type="checkbox" />
+<br />
+<input type="checkbox" />
+<br />
+<input type="checkbox" />
+<br />
+<input type="checkbox" />
+
+<script>
+    window.onload=function()
+    {
+        var aInput=document.getElementsByTagName("input");
+        aInput[0].onclick=function()
+        {
+            for(var i=3;i<aInput.length;i++)
+            {
+                aInput[i].checked=true;
+            }
+        };
+        aInput[1].onclick=function()
+        {
+            for(var i=3;i<aInput.length;i++)
+            {
+                aInput[i].checked=!aInput[i].checked;
+            }
+        };
+        aInput[2].onclick=function()
+        {
+            for(var i=3;i<aInput.length;i++)
+            {
+                aInput[i].checked=false;
+            }
+        };
+    };
+</script>
+</body>
+</html>

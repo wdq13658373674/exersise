@@ -1,0 +1,315 @@
+.pr{position:relative;}
+.pa{position:absolute;}
+.txt-center{text-align: center;}
+.txt-left{text-align: left;}
+.txt-right{text-align: right;}
+.box-shadow{
+  -webkit-box-shadow: 2px 2px 4px rgba(0,0,0,.1);
+  -moz-box-shadow: 2px 2px 4px rgba(0,0,0,.1);
+  box-shadow: 1px 2px 4px rgba(0,0,0,.1);
+}
+
+//  变量
+@width:1200px;
+.main-width{width:@width;height:auto;}
+
+.wrap{
+  // first-box
+  .fist-box{
+    @height:375px;
+    //    left
+    .left-box{width:210px;height:@height - 2;border-top:2px solid green;.pr;
+      .menu{border: 1px solid #e4e4e4;border-top:0px;width:208px;position: relative;
+        &>li{width:188px;height:36.3px;line-height:36.3px;padding:0px 10px;background:#fff url("../images/arrow_icon.png") right 20px center no-repeat;background-size:6px 10px;cursor: pointer;border-bottom:1px solid #e4e4e4;
+          &:last-child{border-bottom: 0;}
+          &:hover{border-left:2px solid green;margin-left:-1px;color:green;background:#fff;width:190px;
+            .menu2{display:block;}
+          }
+        }
+
+        .menu2{.pa;top:-2px;left:210px;width:400px;min-height:373px;color:#777;overflow: hidden;z-index:100;background: #fff;.box-shadow;border: 1px solid #e4e4e4;border-left:0;display: none;
+          dl{overflow:hidden;margin:0px 10px}
+          dt{border-bottom:1px solid #e4e4e4;font-size:14px;margin-top:10px;}
+          dd{margin-left:-12px;
+            a{display: inline-block;width:50px;height:14px;line-height:14px;.txt-center;border-left:1px solid #e4e4e4;margin-left:-2px;font-size: 12px;}
+          }
+        }
+      }
+    }
+    //    right
+    .right-box{width:208px;height:@height - 2;border:1px solid #e4e4e4;
+      div{border-bottom:1px solid #e4e4e4;
+        &:last-child{border-bottom:none;}
+      }
+      .top {width:210px;height:136px;}
+      .center {width:210px;height:85px;}
+      .bottom{width:210px;height:152px;}
+    }
+    //    center
+    .center-box{width:@width - 440;height:@height;margin:0px 10px;
+      .slider{width:@width - 442;height:258px;border:1px solid #e4e4e4;}
+      .bottom{width:@width - 442;height:103px;margin-top:10px;border:1px solid #e4e4e4;}
+    }
+  }
+
+//  second-box
+  .second-box{
+    @height:480px;
+    /*css3颜色渐变*/
+    .linear-gradient {
+      /* Firefox 3.6+ */
+      background: -moz-linear-gradient(top, #ace, #f96);
+      /* Safari 4-5, Chrome 1-9 */
+      /* -webkit-gradient(,  [, ]?,  [, ]? [, ]*) */
+      background: -webkit-gradient(linear,top,from(#ace),to(#f96));
+      /* Safari 5.1+, Chrome 10+ */
+      background: -webkit-linear-gradient(top, #ace, #f96);
+      /* Opera 11.10+ */
+      background: -o-linear-gradient(top, #ace, #f96);
+      /*IE<9>*/
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#1471da, endColorstr=#1C85FB);
+      /*IE8+*/
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#1471da, endColorstr=#1C85FB)";
+    }
+
+    .linear-gradient2{
+      background: -moz-linear-gradient(left 30deg, #ace, #f96);
+      background: -webkit-gradient(linear, 0 0, 100% 100%, from(#ace),to(#f96));
+      background: -o-linear-gradient(30deg, #ace, #f96);
+    }
+    /*css3 动画*/
+    .rotateY(@d:-180deg){
+      transform:rotateY(@d);
+      -webkit-transform:rotateY(@d);
+      -moz-transform:rotateY(@d);
+      -ms-transform:rotateY(@d);
+      -o-transform:rotateY(@d);
+      transition: .6s;
+      -webkit-transition: .6s;
+      -moz-transition: .6s;
+      -o-transition: .6s;
+    }
+    .rotate(@d:0deg){
+      transform:rotate(@d);
+      -webkit-transform:rotate(@d);
+      -moz-transform:rotate(@d);
+      -ms-transform:rotate(@d);
+      -o-transform:rotate(@d);
+      transition: .6s;
+      -webkit-transition: .6s;
+      -moz-transition: .6s;
+      -o-transition: .6s;
+      transform-origin: 0 99px;//基点为x轴0，y轴99地方开始旋转
+      -moz-transform-origin: 0 99px;
+      -webkit-transform-origin: 0 99px;
+      -ms-transform-origin: 0 99px;
+      -o-transform-origin: 0 99px;
+    }
+    .scale(@x:0.8,@y:0.8){
+      transform:scale(@x,@y);
+      -webkit-transform:scale(@x,@y);
+      -moz-transform:scale(@x,@y);
+      -ms-transform:scale(@x,@y);
+      -o-transform:scale(@x,@y);
+      transition: .6s;
+      -webkit-transition: .6s;
+      -moz-transition: .6s;
+      -o-transition: .6s;
+    }
+    .translate(@x:0px,@y:0px){
+      transform:translate(@x,@y);
+      -webkit-transform:translate(@x,@y);
+      -moz-transform:translate(@x,@y);
+      -ms-transform:translate(@x,@y);
+      -o-transform:translate(@x,@y);
+      transition: .6s;
+      -webkit-transition: .6s;
+      -moz-transition: .6s;
+      -o-transition: .6s;
+    }
+    .skew(@x:0deg,@y:0deg){
+      transform:skew(@x,@y);
+      -webkit-transform:skew(@x,@y);
+      -moz-transform:skew(@x,@y);
+      -ms-transform:skew(@x,@y);
+      -o-transform:skew(@x,@y);
+      transition: .6s;
+      -webkit-transition: .6s;
+      -moz-transition: .6s;
+      -o-transition: .6s;
+      -moz-transform-origin: 0 0px;
+      -webkit-transform-origin: 0 0px;
+      -ms-transform-origin: 0 0px;
+      -o-transform-origin: 0 0px;
+    }
+    .mix{
+      transform:rotate(30deg) translate(50px,50px) skew(45deg,15deg);
+     /* -webkit-transform:skew(@x,@y);
+      -moz-transform:skew(@x,@y);
+      -ms-transform:skew(@x,@y);
+      -o-transform:skew(@x,@y);*/
+      transition: .6s;
+      -webkit-transition: .6s;
+      -moz-transition: .6s;
+      -o-transition: .6s;
+      -moz-transform-origin: 0 0px;
+      -webkit-transform-origin: 0 0px;
+      -o-transform-origin: 0 0px;
+    }
+    /*rgba*/
+    .rgba {
+      background: rgb(0,0,0); /*The Fallback color,这里也可以使用一张图片来代替*/
+      background: rgba(0, 0, 0,0.7);
+      filter: alpha(opacity=70); // IE5 - 7
+      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";// IE 8
+      opacity: 0.7;  //Everyone else
+     /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#80000000,endColorstr=#80000000)";// Filter for IE8
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#80000000, endColorstr=#80000000); //Filter for older IEs*/
+    }
+    /*text-shadow*/
+    .demo {
+      background: #666666;
+      font: bold 20px/100% "微软雅黑", "Lucida Grande", "Lucida Sans", Helvetica, Arial, Sans;;
+      color: #000;
+      text-transform: uppercase;
+      text-shadow: #fff 0px 1px 1px;
+      filter:shadow(Color=#fff,Direction=180,Strength=1)
+    }
+
+    /*animation*/
+    @-webkit-keyframes wobble{
+      0% {margin-left:0px;background: indianred;}
+      50% {margin-left:50px;background: darkorange;}
+      100% {margin-left:0px;background:indigo;}
+    }
+
+    &>ul{width:@width - 1;height:@height;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;overflow: hidden;
+      &>li{height:119px;width:198px;border-left:1px solid #e4e4e4;border-top:1px solid #e4e4e4;float: left;
+        .transform{width:178px;height:99px;margin:10px;position: relative;}
+        /*动画效果*/
+        .rotateY-box{background: #e4e4e4;.rotateY(0deg);
+          &:hover{.rotateY;}
+        }
+        .scale-box{background: darkseagreen;.scale(1,1);
+          &:hover{.scale(0.8,0.8);}
+        }
+        .rotate-box{background: indianred;.rotate(0deg);
+          &:hover{.rotate(45deg);}
+        }
+        .translate-box{background: orange;.translate;
+          &:hover{.translate(50px,50px);}
+        }
+        .skew-box{background: cornflowerblue;.skew(0deg,0deg);
+          &:hover{.skew(45deg,15deg);}
+        }
+        .mix-box{background: greenyellow;
+          &:hover{.mix;}
+        }
+        /*渐变颜色*/
+        .gradient{.linear-gradient;}
+        .gradient2{.linear-gradient2;}
+        /*透明背景rgba*/
+        .rgba-box{.rgba;}
+        /*text-shadow-box*/
+        .text-shadow-box{.demo;}
+        /*animation*/
+        .animation-box{
+        /*  -webkit-animation-name:wobble;*//*动画属性名，也就是我们前面keyframes定义的动画名*//*
+          -webkit-animation-duration: 3s;*//*动画持续时间*//*
+          -webkit-animation-timing-function: ease-in-out; *//*动画频率，和transition-timing-function是一样的*//*
+          -webkit-animation-delay: 2s;*//*动画延迟时间*//*
+          -webkit-animation-iteration-count: 2;*//*定义循环资料，infinite为无限次*//*
+          -webkit-animation-direction: normal;*//*定义动画方式*/
+          /*简写方式*/
+          -webkit-animation: wobble 3s ease-in-out 2s 1 normal;
+        }
+      }
+    }
+  }
+}
+
+//third-box
+  .third-box{overflow: hidden;
+    @height:480px;
+    &>ul{width:@width+20;height:@height;
+      li{width:283px;height:218px;border: 1px solid #e4e4e4;margin-right:20px;margin-top:20px;float:left;}
+    }
+  }
+
+//  four-box
+.four-box{
+  @height:370px;
+  &>ul{width:@width;height:@height;border-bottom: 1px solid #e4e4e4;border-right: 1px solid #e4e4e4;
+    &>li{width:369px;height:@height - 30;float:left;border-top: 1px solid #e4e4e4;border-left: 1px solid #e4e4e4;padding:15px;
+      .box{width:175px;height:338px;border:1px solid #e4e4e4;float:left;
+        &:nth-child(1){margin-right:15px;}
+      }
+    }
+  }
+}
+
+//fix-box
+.fix-box{
+  _display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 101;
+  width: 36px;
+  height: 100%;
+  font-family: "Microsoft YaHei";
+  .content{
+    position: relative;
+    z-index: 101;
+    height: 100%;
+    background-color: #262626;
+    .top{
+      height: 400px;
+      position: absolute;
+      top: 10%;
+      right: 0;
+      ul{
+        li{
+          position: relative;
+          width: 36px;
+          &:hover{
+            .fav{right:36px;transition: .2s linear;}
+            .txt{background-position: -160px -44px;transition: .2s linear;}
+          }
+          .txt{
+            display: block;
+            margin: 20px auto;
+            width: 36px;
+            height: 40px;
+            background-image: url(//shop.vipstatic.com/img/common/sidebar/sprite.png?9f844f91);
+            background-position: -160px 0;
+            background-repeat: no-repeat;
+            background-color: #262626;
+            cursor: pointer;
+          }
+          .fav{
+            position: absolute;
+            right: -120px;
+            top: 0;
+            z-index: -1;
+            width: 100px;
+            height: 38px;
+            line-height: 35px;
+            padding: 0 8px;
+            border-radius: 3px 0 0 3px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-right: none;
+            font-size: 14px;
+            text-align: center;
+            -webkit-transition: .3s linear;
+            transition: .3s linear;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+

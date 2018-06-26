@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>New Web Project</title>
+		<style type="text/css">
+			#content {
+				width: 533px;
+				height: 200px;
+			}
+			.nav {
+				padding: 0px;
+				margin: 0px;
+				height: 20px;
+				text-align: center;
+			}
+			
+			.nav li {
+				list-style-type: none;
+				float: left;
+				width: 133px;
+				height: 20px;
+				background-color: #000;
+				color:#fff;
+				cursor: pointer;
+			}
+			
+			.content {
+				width: 533px;
+				height: 200px;
+				background-color: gray;
+				float: left;
+			}
+
+			.nav .active{
+				background-color: gray;
+				color:#000;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="content">
+				<ul class="nav">
+					<li class="active">tab1</li>
+					<li>tab2</li>
+					<li>tab3</li>
+					<li>tab4</li>
+				</ul>
+
+			<div class="content">
+				<div>页面一</div>
+			</div>
+			<div class="content">
+				<div>页面二</div>
+			</div>
+			<div class="content">
+				<div>页面三</div>
+			</div>
+			<div class="content">
+				<div>页面四</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script src="js/tabPlugin.js"></script>
+		<script>
+			//第一种调用
+			/*$('.nav>li').tabPlus({
+				nav:'.nav>li',
+				content:'.content'
+			});*/
+
+			//第二种调用
+			$.fn.tabPlus.defaults.method='mouseover';
+			$('.nav>li').tabPlus({},function(){
+				alert('切换成功');
+			});
+		</script>
+	</body>
+</html>

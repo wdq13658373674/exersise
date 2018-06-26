@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js+gif图片预加载</title>
+    <link rel="stylesheet" href="styles/sass.css"/>
+</head>
+<body>
+<div>
+    <h1>页面加载完成</h1>
+    <div><img src="images/3.jpg" alt=""/></div>
+</div>
+<script>
+    //添加loading html结构
+    var wrap='<div id="wrap-loading"></div>';
+    var loadingHtml='<div id="mask" class="mask"><div class="loading"></div></div>';
+    document.write(wrap);
+    document.getElementById('wrap-loading').innerHTML=loadingHtml;
+
+    //加载状态为complete时移除loading
+    document.onreadystatechange=function compele(){
+        if(document.readyState == 'complete'){
+            var loadingmask=document.getElementById('mask');
+            document.getElementById('wrap-loading').removeChild(loadingmask);
+        }
+    }
+</script>
+</body>
+</html>

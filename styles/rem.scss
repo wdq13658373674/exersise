@@ -1,0 +1,22 @@
+@import url("aui-iconfont.css");
+@import "mixin";
+
+html{background: url("../images/h5/bg2.jpg");}
+@mixin base{background:indianred;color:#fff;font-size:.8rem;}
+
+.header{@include size(100%,2rem);@include base;position: fixed;top:0px;left:0px;line-height:2rem;overflow: hidden;
+  .hl-icon{padding:0px 10px;display: inline-block;}
+  .hl-title{position: absolute;top:0px;left:4rem;right:4rem;text-align: center;white-space: nowrap;text-overflow: ellipsis;}
+}
+.footer{@include size(100%,2.5rem);@include base;position: fixed;bottom:0px;left:0px;font-size:.7rem;overflow: hidden;
+  .nav{@include size(5.3rem,2rem);border-right:1px solid #e5e5e5;@extend %fl;text-align: center;margin-top:0.25rem;
+    &:last-child{border-right:none;}
+  }
+}
+.wrap{@include size(100%,auto);overflow: hidden;margin:2rem 0px 2.5rem;
+  .box{margin-right:-.6rem;margin-bottom: .5rem;
+    li{@include size(5rem,5rem);margin-right:.5rem;@extend %fl;margin-top:.5rem;@include bgcolor-alpha(rgba(255,255,255,.4));overflow: hidden;text-align: center;line-height:5rem;
+      .img{vertical-align: middle;}
+    }
+  }
+}

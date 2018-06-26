@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义竖边框</title>
+	<style type="text/css">
+		*{margin:0px;padding:0px;}
+		ul{list-style: none;}
+		a{text-decoration: none;}
+		/**/
+		.clear{clear: both;}
+		li{float: left;color:#e5e5e5;}
+		/*注:display:inline-block;*/
+		li>a{width:100px;height:30px;line-height:30px;text-align:center;display:inline-block;}
+		/*注：display:block;float:left;*/
+		.menu>a{width:100px;height:30px;line-height:30px;text-align: center;display:block;float: left;}
+		.hr{width:1px;border-right:1px solid #e5e5e5;display:block;font-size:0px;line-height: normal;height:20px;float:left;margin-top:5px;}
+	</style>
+</head>
+<body>
+<!-- 普通菜单布局 -->
+	<ul>
+		<li><a href="#">nav1</a><span>|</span></li>
+		<li><a href="#">nav2</a><span>|</span></li>
+		<li><a href="#">nav3</a><span>|</span></li>
+		<li><a href="#">nav4</a></li>
+		<div class="clear"></div>
+	</ul>
+	<!-- 自定义竖边框 -->
+	<div class="menu">
+		<a href="#">nav1</a>
+		<span class="hr"></span>
+		<a href="#">nav2</a>
+		<span class="hr"></span>
+		<a href="#">nav3</a>
+		<span class="hr"></span>
+		<a href="#">nav4</a></li>
+	</div>
+</body>
+</html>

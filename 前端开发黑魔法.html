@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>前端开发黑魔法</title>
+
+    <link rel="stylesheet" href="styles/base.css"/>
+    <link rel="stylesheet" href="styles/blockMagic.css"/>
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <!--(1)-->
+    <h3>1、a标签嵌套a标签（给嵌套的a标签外面添加object标签）</h3>
+    <div class="box1">
+        <a href="#">点击进入
+            <object><a class="red-ft" href="#">w3cplus点击链接</a></object>
+            即可以访问
+        </a>
+    </div>
+    <!--(2)-->
+    <h3>2、元素居中</h3>
+    <div class="box2">
+        <div class="inset">
+            <img src="images/test0.png" alt=""/>
+        </div>
+    </div>
+
+    <!--(3)-->
+   <!-- <h3>3、background-clip: text动态团文本</h3>
+    <div class="box3">
+        <div class="clip">TEXT</div>
+    </div>-->
+
+    <!-- (4)-->
+    <h3>4.css箭头动画</h3>
+    <div class="sidebar-toggle">
+        <div class="sidebar-toggle-line-wrap">
+            <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+        </div>
+    </div>
+</div>
+<script>
+    var sidebar=$('.sidebar-toggle');
+    sidebar.click(function(){
+       $('.sidebar-toggle-line').css('transition','All .3s linear');
+       $('.sidebar-toggle-line-first').css({transform:'rotate(-45deg)',top:'5px'});
+       $('.sidebar-toggle-line-middle').css('opacity','0');
+       $('.sidebar-toggle-line-last').css({transform:'rotate(45deg)',top:'-5px'});
+    });
+</script>
+</body>
+</html>

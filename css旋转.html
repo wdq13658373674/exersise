@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3旋转</title>
+	<style type="text/css">
+		.box{width:120px;height:50px;line-height: 50px;border: 1px solid #e5e5e5;padding:5px 10px;cursor: pointer;}
+		.box:active{background: #fafafa;}
+		.icon{display: inline-block;width:12px;height:6px;background:url("images/li2.png") 0px 0px no-repeat;}
+		/*css3动画*/
+		.icon2{
+			-webkit-transform: rotate(-180deg);
+			-webkit-transition:All .2s ease-in;
+
+			-o-transform: rotate(-180deg);
+			-o-transition:All .2s ease-in;
+
+			-moz-transform: rotate(-180deg);
+			-moz-transition:All .2s ease-in;
+			
+			transform: rotate(-180deg);
+			transition:All .2s ease-in;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+	<div class="box">
+		<span>图标css3旋转</span>
+		<i class="icon"></i>
+	</div>
+	<script type="text/javascript">
+		$(".box").click(function(){
+			$("i").hasClass("icon2") ? $(".icon").removeClass("icon2") : $(".icon").addClass("icon2")
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+@import "mixin";
+
+body{font: 14px "microsoft YaHei";}
+/*music*/
+.music-box{position: absolute;top:5px;right:5px;@include size(55px,55px);background: url("../images/h5/music.gif") center no-repeat;z-index: 999;
+  @keyframes rotating {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .music{@include size(40px,40px);background: url("../images/h5/music_off.png") no-repeat;background-size: 100% 100%;margin-top:11px;margin-left:2px;margin-top:23px;
+    -webkit-animation: rotating 1.2s infinite linear;
+    -moz-animation: rotating 1.2s infinite linear;
+    animation: rotating 1.2s infinite linear;
+  }
+}
+/*arrow*/
+.arrow{position: absolute;bottom:20px;text-align: center;font-size:0px;width:100%;
+  @keyframes start {
+    0%, 30% {
+      opacity: 0;
+      transform: translate(0,10px);
+    }
+    60% {
+      opacity: 1;
+      transform: translate(0,0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(0,-8px);
+    }
+  }
+  &>img{
+    @include size(28px,14px);
+    -webkit-animation: start 1.5s infinite ease-in-out;
+    -moz-animation: start 1.5s infinite ease-in-out;
+    animation: start 1.5s infinite ease-in-out;
+  }
+}
+
+/*wrap*/
+#wrap{
+  .img-box{
+    transition: all .5s;
+    -webkit-transition: all .5s;
+  }
+  .img-box{
+    text-align: center;font-size:0px;
+    position:absolute;
+    top:80px;
+    left:-470px;
+    width:100%;
+    opacity: 0;
+  }
+  .active{
+    .img-box{
+      left:0px;
+      animation: fadeInLeft .5s forwards linear;
+    }
+  }
+
+  .form-box{
+    position:absolute;
+    width:100%;
+    top:250px;
+      .input-box{
+        margin-top:20px;
+        opacity: 0;
+        margin-left:-300px;
+        width:336px;
+        @include bgcolor-alpha(rgba(#fafafa,.5));
+        @include border-radius();
+        padding:5px 20px;
+        animation: bounceInRight 1s forwards linear;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+
+        span{float:left;}
+
+        .icon{
+          display:inline-block;
+          @include size(30px,30px);
+
+          &.icon1{
+            background: url("../images/h5/phone.png") no-repeat;
+            background-size: 100% 100%;
+          }
+
+          &.icon2{
+            background: url("../images/h5/wx.png") no-repeat;
+            background-size: 100% 100%;
+          }
+        }
+
+        .text{
+          line-height:30px;
+          font-size: 18px;
+          color:#fff;
+        }
+
+
+      }
+  }
+
+  .active{
+    .input-box{
+      opacity: 1;
+      margin-left:auto;margin-right:auto;
+      animation: bounceInLeft 1s forwards linear;
+
+      &.input-box1{
+        transition-delay:2s;
+        -webkit-transition-delay:2s;
+      }
+
+      &.input-box2{
+        -webkit-transition-delay:3s;
+        transition-delay:3s;
+      }
+    }
+
+  }
+
+}

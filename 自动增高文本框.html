@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自动增高的文本框</title>
+    <link rel="stylesheet" href="styles/base.css"/>
+    <style>
+        .textarea{
+            width:400px;
+            min-height:150px;
+            max-height: 500px;;
+            _height:300px;
+            outline: none;
+            border:1px solid #e5e5e5;
+            padding:3px;
+            /*支持超出最大高度时显示竖直滚动条，不需要限定最大高度时可以去掉*/
+            word-wrap: break-word;
+            overflow-x:hidden;
+            overflow-y: auto;
+            _overflow-y: visible;
+        }
+        .imgbox{width:1200px;height:auto;margin:10px auto;}
+        .img{width:100%;height:100%;}
+    </style>
+</head>
+<body>
+<div class="imgbox">
+<!--contenteditable 可编辑的div-->
+<div contenteditable=""true class="textarea">
+    <br/>
+</div>
+
+<!--图片标题-->
+
+    <figure>
+        <img src="images/3.jpg" alt="About image" class="img"/>
+        <figcaption>
+            <p>This is an image of something interesting. </p>
+        </figcaption>
+    </figure>
+</div>
+</body>
+</html>

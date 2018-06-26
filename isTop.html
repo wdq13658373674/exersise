@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>返回顶部</title>
+    <style type="text/css">
+        #btn {width:40px; height:40px; position:fixed; right:65px; bottom:10px;background:url(images/top_bg.png) no-repeat left top;display: none;}
+        #btn:hover {background:url(images/top_bg.png) no-repeat 0 -39px;}
+        .bg {width:1190px; margin:0 auto;}
+    </style>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="js/scrollTop.js"></script>
+</head>
+<body>
+<a href="javascript:void(0)" id="btn" title="回到顶部"></a>
+<div class="bg">
+    <img src="images/tb_bg.jpg" alt="" />
+</div>
+<script>
+    $('#btn').isTop();
+</script>
+</body>
+</html>
